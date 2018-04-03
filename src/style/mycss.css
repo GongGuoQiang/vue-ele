@@ -1,0 +1,342 @@
+body{
+    margin: 0px;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+*{
+    text-decoration:none;
+}
+.fixed{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 5;
+}
+.fl{float: left;}
+.ih40{
+    height: 40px;
+    line-height: 40px;
+}
+.ih30{
+    height: 30px;
+    line-height: 30px;
+}
+.ih50{
+    height: 50px;
+    line-height: 50px;
+}
+
+.bgcol{
+    background-color:#26a2ff;
+}
+.bgfff{
+    background-color: #fff;
+}
+.bgf5{
+    background-color:#F5F5F5;
+}
+
+.fs0-8{
+    font-size: 0.8rem !important;
+}
+.fs1-2{
+    font-size: 1rem;
+}
+.fs15{
+    font-size: 15px;
+}
+.fs12{
+    font-size: 12px;
+}
+.fs10{
+    font-size: 12px;
+    transform: scale(.8);
+    display:inline-block;
+}
+.mgr{
+  transform-origin:100% 50% 0;/*改变缩放基点*/
+}
+.mgl{
+  transform-origin:0 50% 0;/*改变缩放基点*/
+}
+.colfff{
+    color: #fff;
+}
+.col9f{
+    color: #9F9F9F;
+}
+.colf60{
+    color: #FF6600;
+}
+.col{
+    color: #26a2ff;
+}
+.colred{
+    color:#FE3D3D;
+}
+.colblack{
+  color: black;
+}
+.pad10{
+    padding: 10px;
+}
+.padlr10{
+    padding:0px 10px 0px 10px;
+}
+.padtop10{
+    padding-top:10px;
+}
+.padtop40{
+    padding-top:40px;
+}
+.padtop50{
+    padding-top:50px;
+}
+.padbot10{
+    padding-bottom:10px;
+}
+.padr10{
+    padding-right: 10px;
+}
+.mgtop5{
+    margin-top: 5px;
+}
+.mgtop40{
+    margin-top: 40px;
+}
+.mgtop50{
+    margin-top: 50px;
+}
+.mgtop10{
+    margin-top: 10px;
+}
+.mgbot10{
+    margin-bottom: 10px;
+}
+.mgr5{
+    margin-right: 5px;
+}
+.w15{
+    width: 15px;
+    height: 15px;
+}
+.w60{
+    width: 60px;
+    height: 60px;
+}
+.w100{
+    width: 100%;
+}
+.radius50{
+    border-radius: 50%;
+}
+.inblock{
+  display: inline-block;
+}
+.flex{
+    display: flex;
+}
+.flex2{
+    display: flex;
+    flex-direction:column;
+}
+.flex1{
+    flex: 1;
+}
+.ovhid{
+    overflow: hidden;
+}
+.box{
+    box-sizing: border-box;
+}
+.right{
+    float: right;
+}
+
+.clear{
+    clear: both;
+    overflow: hidden;
+}
+.relative{
+  position: relative;
+}
+.left{
+    float: left;
+}
+.midline{
+    text-decoration: line-through;
+}
+.nowarp{
+    white-space:nowrap;          /* 不换行 */
+    overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;   /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+/*一像素分割线*/
+.after{
+     position: relative;
+}
+.after::after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e4e4e4;
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+}
+/* 2倍屏 */
+@media only screen and (-webkit-min-device-pixel-ratio: 2.0) {
+    .after::after {
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+}
+
+/* 3倍屏 */
+@media only screen and (-webkit-min-device-pixel-ratio: 3.0) {
+    .after::after {
+        -webkit-transform: scaleY(0.33);
+        transform: scaleY(0.33);
+    }
+}
+
+
+/* 组件动画 */
+/* 左进左出 */
+.left-enter-active{
+  animation-name: left-in;
+  animation-duration: .2s;
+  animation-timing-function:linear;
+}
+.left-leave-active{
+  animation-name: left-out;
+  animation-timing-function:linear;
+  animation-duration: .2s;
+}
+@keyframes left-in {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  50% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes left-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* 右进右出 */
+.right-enter-active{
+  animation-name: right-in;
+  animation-duration: .2s;
+  animation-timing-function:linear;
+}
+.right-leave-active{
+  animation-name: right-out;
+  animation-timing-function:linear;
+  animation-duration: .2s;
+}
+@keyframes right-in {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  50% {
+    transform: translate3d(50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes right-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+/* 上进上出 */
+.top-enter-active{
+  animation-name: top-in;
+  animation-duration: .2s;
+  animation-timing-function:linear;
+}
+.top-leave-active{
+  animation-name: top-out;
+  animation-timing-function:linear;
+  animation-duration: .2s;
+}
+@keyframes top-in {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+  50% {
+    transform: translate3d(0, -50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes top-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -50%, 0);
+  }
+  100% {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+/* 淡进淡出 */
+.opacity-enter-active{
+  animation-name: opacity-in;
+  animation-duration: .2s;
+  animation-timing-function:linear;
+}
+.opacity-leave-active{
+  animation-name: opacity-out;
+  animation-timing-function:linear;
+  animation-duration: .2s;
+}
+@keyframes opacity-in {
+  0% {
+    opacity:0;
+  }
+  50% {
+    opacity:0.5;
+  }
+  100% {
+    opacity:1;
+  }
+}
+@keyframes opacity-out {
+  0% {
+    opacity:1;
+  }
+  50% {
+    opacity:0.5;
+  }
+  100% {
+    opacity:0;
+  }
+}

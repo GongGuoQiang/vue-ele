@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>js</title>
+    </head>
+    <style media="screen">
+        *{margin: 0;padding: 0;}
+        #modle,#modle2{width: 200px;height: 100px;display: none;border: 1px solid #dcdcdc;box-shadow: 3px 3px 17px;margin: 0 auto;}
+        p{padding: 10px;}
+        span{float: left;}
+        b{float: right;}
+        .first_p{overflow: hidden;height: 20px;background-color: #eee;}
+
+    </style>
+    <body>
+        用户名：<input type="text" id="username" name="" value=""><br>
+        密码：<input type="number" id="password" name="" value=""><br>
+        重复密码：<input type="number" id="copymima" name="" value=""><br>
+        <button onclick="change(this)" type="button" name="button">提交</button>
+        <div id="modle">
+            <p class="first_p"><span>javascript提醒</span><b>x</b></p>
+          <p>用户名最小5个字符，最大15个字符</p>
+        </div>
+        <div id="modle2">
+            <p class="first_p"><span>javascript提醒</span><b>x</b></p>
+          <p>两次密码不一致</p>
+        </div>
+    </body>
+    <script type="text/javascript">
+      function change() {
+          var user=document.getElementById('username').value.length;
+          var pass=document.getElementById('password').value;
+          var copy=document.getElementById('copymima').value;
+          var showm=document.getElementById('modle');
+          var showm2=document.getElementById('modle2');
+               if (user<5 || user>15) {
+                   showm.style.display="block";
+               }else{
+                   showm.style.display="none";
+               }
+               if (pass!==copy) {
+                   showm2.style.display="block";
+               }else {
+                   showm2.style.display="none";
+               }
+      }
+
+    </script>
+</html>
