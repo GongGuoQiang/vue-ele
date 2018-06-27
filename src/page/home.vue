@@ -2,7 +2,7 @@
     <div>
         <mt-header fixed>
             <span slot="left">elm</span>
-            <mt-button slot="right" @click="gologin">登录|注册</mt-button>
+            <mt-button slot="right" @click="gologin" v-if="!logined">登录|注册</mt-button>
         </mt-header>
        <div class="padtop40">
            <div class="after ih50 padlr10 box bgfff">
@@ -34,12 +34,18 @@ export default {
     return {
        citylist:"",
        hotcity:"",
+       logined:false,
+       user:{
+           name:'',
+           password:''
+       }
     }
 },
  component:{
 
  },
  mounted:function(){
+     this.getCookie();
      //城市列表
      this.$http.get('http://cangdu.org:8001/v1/cities?type=group').then(response => {
          console.log(response)
@@ -82,7 +88,24 @@ export default {
       gocity:function(e){
           this.$router.push({"name":'city',params:{name: e.name}});
           this.$store.state.nowcity = e;
-      }
+      },
+      getCookie:function () {
+          if (document.cookie.length > 0) {
+                  var arr = document.cookie.split('; '); //这里显示的格式需要切割一下自己可输出看下
+                  for (var i = 0; i < arr.length; i++) {
+                      var arr2 = arr[i].split('='); //再次切割
+                      //判断查找相对应的值
+                      if (arr2[0] == 'name') {
+                          this.logined = true;
+                          this.user.name = arr2[1]; //保存到保存数据的地方
+                      } else if (arr2[0] == 'password') {
+                          this.user.password = arr2[1];
+                      }
+                  }
+              }
+              var todo=this.$store.state.userInfo;
+              console.log(todo)
+      },
  }
 
 }

@@ -7,6 +7,7 @@ import profile from '../page/profile/profile'
 import search from '../page/search/search'
 import order from '../page/order/order'
 import shop from '../page/shop/shop'
+import loginOut from '../page/loginOut/loginOut'
 // import demo from '../page/demo'
 import shopchild from '../page/shop/shopchild/shopchild'
 
@@ -55,6 +56,11 @@ export default[{
               path:'/order',
               name:'order',
               component:order
+          },
+          {
+              path:'/loginOut',
+              name:'loginOut',
+              component:loginOut
           },
           {
               path:'/shop/:id',

@@ -3,7 +3,7 @@
         <div class="myhead">
                 <icon class="search2" name="search2" ></icon>
                 <div class="headmain nowarp fs1-2" @click="gocity">环球中心(s2-7-1-739)</div>
-                <div class="headright fs0-8" @click="login">登录|注册</div>
+                <div class="headright fs0-8" @click="login" v-if="!logined">登录|注册</div>
         </div>
         <div class="min-height">
         <div class="padtop40">
@@ -72,7 +72,12 @@ import Load from '../load/load'
            category:[],
             imgBaseUrl:'https://fuss10.elemecdn.com', //图片域名地址
             shoplist:"",
-            num:1    //ajax是否加载完成
+            num:1,    //ajax是否加载完成
+            logined:false,
+            user:{
+                name:'',
+                password:''
+            }
         }
     },
     components:{
@@ -80,6 +85,7 @@ import Load from '../load/load'
        Load
     },
     mounted:function(){
+        this.getCookie();
         //生命周期
             //分类
             this.num=this.num-1
@@ -130,7 +136,22 @@ import Load from '../load/load'
     },
     gocity:function(){
         this.$router.push({path:'/home'})
-    }
+    },
+    getCookie:function () {
+        if (document.cookie.length > 0) {
+                var arr = document.cookie.split('; '); //这里显示的格式需要切割一下自己可输出看下
+                for (var i = 0; i < arr.length; i++) {
+                    var arr2 = arr[i].split('='); //再次切割
+                    //判断查找相对应的值
+                    if (arr2[0] == 'name') {
+                        this.logined = true;
+                        this.user.username = arr2[1]; //保存到保存数据的地方
+                    } else if (arr2[0] == 'password') {
+                        this.user.password = arr2[1];
+                    }
+                }
+            }
+    },
 
     }
 }
@@ -186,6 +207,7 @@ import Load from '../load/load'
   overflow: hidden;
   display:flex;
 }
+.shoplist>a{width: 100%;}
 .shoplist>div{
   float:left;
 }

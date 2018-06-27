@@ -9,7 +9,11 @@ Vue.use(Vuex);
  const state={
       nowcity:'',
       selected:'miste',
-      foodid:""
+      foodid:"",
+      userInfo:{
+          name:'',
+          password:''
+      },
  };
 
  export default new Vuex.Store({

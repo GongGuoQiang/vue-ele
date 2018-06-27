@@ -49,7 +49,7 @@ import { Toast } from 'mint-ui';
            title:''
         }
     },
-    component:{
+    components:{
 
     },
     mounted:function(){
